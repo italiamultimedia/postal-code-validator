@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace ItaliaMultimedia\PostalCodeValidator;
 
+/**
+* Postal code validator.
+*
+* General
+*/
 final class PostalCodeValidator
 {
-    public function validate(string $countryCode, string $postalCode): bool
-    {
-        // \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorInterface
-        $validator = $this->getValidator($countryCode);
-
-        return $validator->validate($postalCode);
-    }
-
     public function getValidator(string $countryCode): PostalCodeValidatorInterface
     {
         switch ($countryCode) {
@@ -24,5 +21,18 @@ final class PostalCodeValidator
                     \sprintf('Validation not implemented for countryCode "%s".', $countryCode),
                 );
         }
+    }
+
+    /**
+    * Validate postal code.
+    *
+    * @throws \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorException if country not implemented
+    */
+    public function validate(string $countryCode, string $postalCode): bool
+    {
+        // \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorInterface
+        $validator = $this->getValidator($countryCode);
+
+        return $validator->validate($postalCode);
     }
 }

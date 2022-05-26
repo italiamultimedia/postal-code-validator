@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace ItaliaMultimedia\PostalCodeValidator;
 
+/**
+* Postal code validator.
+*
+* Italy
+*/
 final class PostalCodeValidatorItaly extends AbstractPostalCodeValidator implements PostalCodeValidatorInterface
 {
     public function getFormat(): string
