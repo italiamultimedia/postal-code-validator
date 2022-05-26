@@ -348,14 +348,15 @@ return [
     // Thus, both first-party and third-party code being used by
     // your application should be included in this list.
     'directory_list' => [
-        'src/ItaliaMultimedia',
+        'src',
+        'tests',
         //'vendor/pds/skeleton/src',
         //'vendor/phan/phan/src/Phan',
         //'vendor/php-parallel-lint/php-console-highlighter/src',
         //'vendor/php-parallel-lint/php-parallel-lint/./src',
         //'vendor/phpmd/phpmd/src/main/php',
         //'vendor/phpstan/phpstan-strict-rules/src',
-        //'vendor/phpunit/phpunit/src',
+        'vendor/phpunit/phpunit/src',
         //'vendor/slevomat/coding-standard/SlevomatCodingStandard',
         //'vendor/vimeo/psalm/src/Psalm',
     ],
