@@ -16,7 +16,7 @@ final class ItalyTest extends TestCase
     public function assertFormatMatches(): void
     {
         $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly();
-        $this->assertEquals($validator->getFormat(), '99999');
+        $this->assertEquals('99999', $validator->getFormat());
     }
 
     /**

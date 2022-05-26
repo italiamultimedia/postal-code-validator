@@ -6,7 +6,7 @@ namespace Tests\PostalCodeValidator;
 
 use PHPUnit\Framework\TestCase;
 
-final class HelperTestItaly extends TestCase
+final class HelperItalyTest extends TestCase
 {
     /**
     * Format test
@@ -16,7 +16,7 @@ final class HelperTestItaly extends TestCase
     public function assertFormatMatches(): void
     {
         $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
-        $this->assertEquals($validatorHelper->getValidator('IT')->getFormat(), '99999');
+        $this->assertEquals('99999', $validatorHelper->getValidator('IT')->getFormat());
     }
 
     /**
