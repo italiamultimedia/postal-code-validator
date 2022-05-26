@@ -17,9 +17,4 @@ final class Test extends TestCase
     {
         $this->assertTrue(true);
     }
-
-    public function blank(): void
-    {
-        $this->markTestIncomplete('TODO');
-    }
 }
