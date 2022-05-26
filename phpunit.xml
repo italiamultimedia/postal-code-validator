@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+        backupStaticAttributes="false"
+        bootstrap="vendor/autoload.php"
+        cacheResult="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnFailure="false"
+        verbose="true">
+    <testsuites>
+        <testsuite name="Test">
+            <directory suffix="Test.php">./tests/unit/ItaliaMultimedia/Test</directory>
+        </testsuite>
+        <testsuite name="ConstantValueClassTest">
+            <directory suffix="Test.php">./tests/unit/ItaliaMultimedia/PostalCodeValidator</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
