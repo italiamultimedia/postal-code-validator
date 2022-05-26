@@ -14,6 +14,8 @@ final class PostalCodeValidatorHelper
     public function getValidator(string $countryCode): PostalCodeValidatorInterface
     {
         switch ($countryCode) {
+            case 'GB':
+                return new PostalCodeValidatorGreatBritain();
             case 'IT':
                 return new PostalCodeValidatorItaly();
             default:

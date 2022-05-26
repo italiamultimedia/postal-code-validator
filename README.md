@@ -2,7 +2,10 @@
 
 Basic postal code validation (format only).
 
+Regular expression patterns are taken from `https://i18napis.appspot.com/address/data/{COUNTRY_CODE}`.
+
 Implemented countries:
+- Great Britain (`GB`): `\ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain`
 - Italy (`IT`): `\ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly`
 
 ## Install

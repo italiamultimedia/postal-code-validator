@@ -8,6 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 final class HelperItalyTest extends TestCase
 {
+    protected const COUNTRY_CODE = 'IT';
+
     /**
     * Format test
     *
@@ -16,7 +18,7 @@ final class HelperItalyTest extends TestCase
     public function assertFormatMatches(): void
     {
         $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
-        $this->assertEquals('99999', $validatorHelper->getValidator('IT')->getFormat());
+        $this->assertEquals('99999', $validatorHelper->getValidator(self::COUNTRY_CODE)->getFormat());
     }
 
     /**
@@ -27,7 +29,7 @@ final class HelperItalyTest extends TestCase
     public function assertInvalidCodeFailSixDigits(): void
     {
         $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
-        $this->assertFalse($validatorHelper->validate('IT', '123456'));
+        $this->assertFalse($validatorHelper->validate(self::COUNTRY_CODE, '123456'));
     }
 
     /**
@@ -38,7 +40,7 @@ final class HelperItalyTest extends TestCase
     public function assertValidCodePassMilano(): void
     {
         $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
-        $this->assertTrue($validatorHelper->validate('IT', '20129'));
+        $this->assertTrue($validatorHelper->validate(self::COUNTRY_CODE, '20129'));
     }
 
     /**
@@ -49,6 +51,6 @@ final class HelperItalyTest extends TestCase
     public function assertValidCodePassRome(): void
     {
         $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
-        $this->assertTrue($validatorHelper->validate('IT', '00128'));
+        $this->assertTrue($validatorHelper->validate(self::COUNTRY_CODE, '00128'));
     }
 }
