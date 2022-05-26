@@ -9,6 +9,17 @@ use PHPUnit\Framework\TestCase;
 final class ItalyTest extends TestCase
 {
     /**
+    * Format test
+    *
+    * @test
+    */
+    public function assertFormatMatches(): void
+    {
+        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly();
+        $this->assertEquals($validator->getFormat(), '99999');
+    }
+
+    /**
     * Invalid code
     *
     * @test
