@@ -15,7 +15,7 @@ final class ItalyTest extends TestCase
     */
     public function assertInvalidCodeFailSixDigits(): void
     {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorIT();
+        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly();
         $this->assertFalse($validator->validate('123456'));
     }
 
@@ -26,7 +26,7 @@ final class ItalyTest extends TestCase
     */
     public function assertValidCodePassMilano(): void
     {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorIT();
+        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly();
         $this->assertTrue($validator->validate('20129'));
     }
 
@@ -37,7 +37,7 @@ final class ItalyTest extends TestCase
     */
     public function assertValidCodePassRome(): void
     {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorIT();
+        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly();
         $this->assertTrue($validator->validate('00128'));
     }
 }
