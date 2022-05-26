@@ -9,8 +9,10 @@ use PHPUnit\Framework\TestCase;
 final class Test extends TestCase
 {
     /**
-     * @test
-     */
+    * Dummy passing test
+    *
+    * @test
+    */
     public function dummyPassingTest(): void
     {
         $this->assertTrue(true);
