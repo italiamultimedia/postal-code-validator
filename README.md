@@ -13,15 +13,20 @@ composer require italiamultimedia/postal-code-validator @dev
 
 ## Usage
 
-### General
+### General, using the helper
 
 ```php
-$validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidator();
+$validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
+
+// Validate
 try {
-    $result = $validator->validate($countryCode, $postalCode);
+    $result = $validatorHelper->validate($countryCode, $postalCode);
 } catch (\ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorException $e) {
     ... // handle exception
 }
+
+// Get format
+$format = $validatorHelper->getValidator($countryCode)->getFormat();
 ```
 
 ### Individual country
@@ -30,9 +35,14 @@ Example for Italy.
 
 ```php
 $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly();
+
+// Validate
 try {
     $result = $validator->validate($postalCode);
 } catch (\ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorException $e) {
     ... // handle exception
 }
+
+// Get format
+$format = $validator->getFormat();
 ```
