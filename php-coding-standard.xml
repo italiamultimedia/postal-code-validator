@@ -20,6 +20,10 @@
 		<exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix" />
 		<!-- Superfluous suffix "Interface". -->
 		<exclude name="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix" />
+		<!--"Reports use of superfluous suffix "Trait" for traits." -->
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousTraitNaming.SuperfluousSuffix" />
+		<!-- "ound multi-line doc comment with single line content, use one-line doc comment instead." -->
+		<exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment" />
 		<!-- seems to conflict with own rules and also with PSR2 -->
 		<exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure" />
 		<!-- conflicts with SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure -->
