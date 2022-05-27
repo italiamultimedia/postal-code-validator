@@ -9,7 +9,7 @@ namespace ItaliaMultimedia\PostalCodeValidator;
 *
 * General
 */
-final class PostalCodeValidatorHelper
+class PostalCodeValidatorHelper
 {
     public function getValidator(string $countryCode): PostalCodeValidatorInterface
     {
