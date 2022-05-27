@@ -79,7 +79,7 @@ class PostalCodeValidator
             case 'US':
                 return $this->validateRegex($postalCode, '(\\d{5})(?:[ \\-](\\d{4}))?');
             default:
-                throw new \InvalidArgumentException(
+                throw new PostalCodeValidatorException(
                     \sprintf('Country not implemented: "%s".', $countryCode),
                 );
         }

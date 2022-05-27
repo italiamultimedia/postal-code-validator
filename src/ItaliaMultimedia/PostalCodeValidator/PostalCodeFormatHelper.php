@@ -57,7 +57,7 @@ class PostalCodeFormatHelper
             case 'SK':
                 return '3N b 2N';
             default:
-                throw new \InvalidArgumentException(
+                throw new PostalCodeValidatorException(
                     \sprintf('Country not implemented: "%s".', $countryCode),
                 );
         }
