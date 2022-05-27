@@ -46,8 +46,9 @@
 		<properties>
 			<!-- Namespaces that are allowed to be `use`d -->
 			<property name="namespacesRequiredToUse" type="array">
-				<element key="1" value="PHPUnit"/>
-				<element key="2" value="Psr"/>
+				<element key="1" value="PHPUnit" />
+				<element key="2" value="Psr" />
+				<element key="3" value="ItaliaMultimedia" />
 			</property>
 			<!-- SlevomatCodingStandard.Files.TypeNameMatchesFileName -->
 			<property name="rootNamespaces" type="array">

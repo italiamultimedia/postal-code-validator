@@ -5,8 +5,8 @@ Basic postal code validation (format only).
 Regular expression patterns are taken from `https://i18napis.appspot.com/address/data/{COUNTRY_CODE}`.
 
 Implemented countries:
-- Great Britain (`GB`): `\ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain`
-- Italy (`IT`): `\ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly`
+- Great Britain (`GB`): `\ItaliaMultimedia\PostalCodeValidator\Countries\GreatBritainValidator`
+- Italy (`IT`): `\ItaliaMultimedia\PostalCodeValidator\Countries\ItalyValidator`
 
 ## Install
 
@@ -37,7 +37,7 @@ $format = $validatorHelper->getValidator($countryCode)->getFormat();
 Example for Italy.
 
 ```php
-$validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly();
+$validator = new \ItaliaMultimedia\PostalCodeValidator\Countries\ItalyValidator();
 
 // Validate
 try {

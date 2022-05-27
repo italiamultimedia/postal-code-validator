@@ -4,24 +4,15 @@ declare(strict_types=1);
 
 namespace Tests\PostalCodeValidator;
 
+use ItaliaMultimedia\PostalCodeValidator\PostalCodeValidator;
 use PHPUnit\Framework\TestCase;
 
 /**
-* @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain
-* @uses \ItaliaMultimedia\PostalCodeValidator\AbstractPostalCodeValidator
+* @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidator
 */
 final class GreatBritainTest extends TestCase
 {
-    /**
-    * Format test
-    *
-    * @test
-    */
-    public function assertFormatMatches(): void
-    {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain();
-        $this->assertEquals('AA99 9AA', $validator->getFormat());
-    }
+    protected const COUNTRY_CODE = 'GB';
 
     /**
     * Invalid code
@@ -30,8 +21,8 @@ final class GreatBritainTest extends TestCase
     */
     public function assertInvalidCodeFailSixDigits(): void
     {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain();
-        $this->assertFalse($validator->validate('123456'));
+        $validator = new PostalCodeValidator();
+        $this->assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
     }
 
     /**
@@ -41,8 +32,8 @@ final class GreatBritainTest extends TestCase
     */
     public function assertValidCodePassLoughborough(): void
     {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain();
-        $this->assertTrue($validator->validate('LE11 1HL'));
+        $validator = new PostalCodeValidator();
+        $this->assertTrue($validator->validate(self::COUNTRY_CODE, 'LE11 1HL'));
     }
 
     /**
@@ -52,8 +43,8 @@ final class GreatBritainTest extends TestCase
     */
     public function assertValidCodePassLondon(): void
     {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain();
-        $this->assertTrue($validator->validate('WC2N 5DU'));
+        $validator = new PostalCodeValidator();
+        $this->assertTrue($validator->validate(self::COUNTRY_CODE, 'WC2N 5DU'));
     }
 
     /**
@@ -63,7 +54,7 @@ final class GreatBritainTest extends TestCase
     */
     public function assertValidCodePassManchester(): void
     {
-        $validator = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain();
-        $this->assertTrue($validator->validate('M2 4WU'));
+        $validator = new PostalCodeValidator();
+        $this->assertTrue($validator->validate(self::COUNTRY_CODE, 'M2 4WU'));
     }
 }

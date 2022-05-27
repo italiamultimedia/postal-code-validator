@@ -4,27 +4,15 @@ declare(strict_types=1);
 
 namespace Tests\PostalCodeValidator;
 
+use ItaliaMultimedia\PostalCodeValidator\PostalCodeValidator;
 use PHPUnit\Framework\TestCase;
 
 /**
-* @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper
-* @uses \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly
-* @uses \ItaliaMultimedia\PostalCodeValidator\AbstractPostalCodeValidator
+* @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidator
 */
 final class HelperItalyTest extends TestCase
 {
     protected const COUNTRY_CODE = 'IT';
-
-    /**
-    * Format test
-    *
-    * @test
-    */
-    public function assertFormatMatches(): void
-    {
-        $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
-        $this->assertEquals('99999', $validatorHelper->getValidator(self::COUNTRY_CODE)->getFormat());
-    }
 
     /**
     * Invalid code
@@ -33,7 +21,7 @@ final class HelperItalyTest extends TestCase
     */
     public function assertInvalidCodeFailSixDigits(): void
     {
-        $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
+        $validatorHelper = new PostalCodeValidator();
         $this->assertFalse($validatorHelper->validate(self::COUNTRY_CODE, '123456'));
     }
 
@@ -44,7 +32,7 @@ final class HelperItalyTest extends TestCase
     */
     public function assertValidCodePassMilano(): void
     {
-        $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
+        $validatorHelper = new PostalCodeValidator();
         $this->assertTrue($validatorHelper->validate(self::COUNTRY_CODE, '20129'));
     }
 
@@ -55,7 +43,7 @@ final class HelperItalyTest extends TestCase
     */
     public function assertValidCodePassRome(): void
     {
-        $validatorHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper();
+        $validatorHelper = new PostalCodeValidator();
         $this->assertTrue($validatorHelper->validate(self::COUNTRY_CODE, '00128'));
     }
 }
