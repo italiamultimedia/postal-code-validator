@@ -6,6 +6,11 @@ namespace Tests\PostalCodeValidator;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+* @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper
+* @uses \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorItaly
+* @uses \ItaliaMultimedia\PostalCodeValidator\AbstractPostalCodeValidator
+*/
 final class HelperItalyTest extends TestCase
 {
     protected const COUNTRY_CODE = 'IT';

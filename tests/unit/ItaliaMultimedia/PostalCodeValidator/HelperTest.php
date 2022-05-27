@@ -6,6 +6,9 @@ namespace Tests\PostalCodeValidator;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+* @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorHelper
+*/
 final class HelperTest extends TestCase
 {
     /**

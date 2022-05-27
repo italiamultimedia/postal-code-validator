@@ -6,6 +6,10 @@ namespace Tests\PostalCodeValidator;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+* @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidatorGreatBritain
+* @uses \ItaliaMultimedia\PostalCodeValidator\AbstractPostalCodeValidator
+*/
 final class GreatBritainTest extends TestCase
 {
     /**
