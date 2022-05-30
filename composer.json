@@ -33,6 +33,9 @@
         "phpdocumentor/phpdocumentor": "phpDocumentor v3 (global installation)"
     },
     "autoload" : {
+        "files" : [
+            "src/I18nHelper.php"
+        ],
         "psr-4" : {
             "ItaliaMultimedia\\" : "src/ItaliaMultimedia/",
             "Tests\\" : "tests/unit/WebServCo/"

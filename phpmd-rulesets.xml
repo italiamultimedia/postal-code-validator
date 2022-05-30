@@ -29,6 +29,13 @@
     </rule>
     <rule ref="rulesets/controversial.xml" />
     <rule ref="rulesets/design.xml" />
-    <rule ref="rulesets/naming.xml" />
+    <rule ref="rulesets/naming.xml">
+        <exclude name="ShortMethodName" />
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortMethodName">
+        <properties>
+            <property name="exceptions" value="__" />
+        </properties>
+    </rule>
     <rule ref="rulesets/unusedcode.xml" />
 </ruleset>
