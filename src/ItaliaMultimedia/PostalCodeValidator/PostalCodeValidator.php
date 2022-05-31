@@ -11,82 +11,61 @@ namespace ItaliaMultimedia\PostalCodeValidator;
 */
 class PostalCodeValidator
 {
-    // phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength,SlevomatCodingStandard.Files.FunctionLength.FunctionLength
+    protected const PATTERN_D3D2 = '\\d{3} ?\\d{2}';
+    protected const PATTERN_D4 = '\\d{4}';
+    protected const PATTERN_D5 = '\\d{5}';
+    protected const PATTERN_D6 = '\\d{6}';
+
     public function validate(string $countryCode, string $postalCode): bool
     {
-        switch ($countryCode) {
-            case 'AT':
-            case 'AU':
-            case 'BG':
-            case 'BE':
-            case 'CH':
-            case 'CY':
-            case 'DK':
-            // pattern: 'LV-\\d{4}'
-            case 'LV':
-            case 'LU':
-            case 'NZ':
-            case 'SI':
-                return $this->validateRegex($postalCode, '\\d{4}');
-            case 'CA':
-                return $this->validateRegex(
-                    $postalCode,
-                    '[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z] ?\\d[ABCEGHJ-NPRSTV-Z]\\d',
-                );
-            case 'CN':
-            case 'RO':
-            case 'RU':
-                return $this->validateRegex($postalCode, '\\d{6}');
-            case 'CZ':
-                return $this->validateRegex($postalCode, '\\d{3} ?\\d{2}');
-            case 'DE':
-            case 'EE':
-            case 'ES':
-            case 'IT':
-            case 'FI':
-            case 'KR':
-            case 'LT':
-            case 'MX':
-            case 'UA':
-                return $this->validateRegex($postalCode, '\\d{5}');
-            case 'FR':
-                return $this->validateRegex($postalCode, '\\d{2} ?\\d{3}');
-            case 'GB':
-                return $this->validateRegex(
-                    $postalCode,
-                    'GIR ?0AA|(?:(?:AB|AL|B|BA|BB|BD|BH|BL|BN|BR|BS|BT|BX|CA|CB|CF|CH|CM|CO|CR|CT|CV|CW|DA|DD|DE|DG|'
-                    . 'DH|DL|DN|DT|DY|E|EC|EH|EN|EX|FK|FY|G|GL|GY|GU|HA|HD|HG|HP|HR|HS|HU|HX|IG|IM|IP|IV|JE|KA|KT|KW'
-                    . '|KY|L|LA|LD|LE|LL|LN|LS|LU|M|ME|MK|ML|N|NE|NG|NN|NP|NR|NW|OL|OX|PA|PE|PH|PL|PO|PR|RG|RH|RM|S'
-                    . '|SA|SE|SG|SK|SL|SM|SN|SO|SP|SR|SS|ST|SW|SY|TA|TD|TF|TN|TQ|TR|TS|TW|UB|W|WA|WC|WD|WF|WN|WR|WS|'
-                    . 'WV|YO|ZE)(?:\\d[\\dA-Z]? ?\\d[ABD-HJLN-UW-Z]{2}))|BFPO ?\\d{1,4}',
-                );
-            case 'GR':
-                return $this->validateRegex($postalCode, '\\d{3} ?\\d{2}');
-            case 'LI':
-                return $this->validateRegex($postalCode, '948[5-9]|949[0-7]');
-            case 'NL':
-                return $this->validateRegex($postalCode, '\\d{4} ?[A-Z]{2}');
-            case 'PL':
-                return $this->validateRegex($postalCode, '\\d{2}-\\d{3}');
-            case 'PT':
-                return $this->validateRegex($postalCode, '\\d{4}-\\d{3}');
-            case 'SE':
-                return $this->validateRegex($postalCode, '\\d{3} ?\\d{2}');
-            case 'SK':
-                return $this->validateRegex($postalCode, '\\d{3} ?\\d{2}');
-            case 'SM':
-                return $this->validateRegex($postalCode, '4789\\d');
-            case 'US':
-                return $this->validateRegex($postalCode, '(\\d{5})(?:[ \\-](\\d{4}))?');
-            default:
-                throw new PostalCodeValidatorException(
-                    \sprintf('Country not implemented: "%s".', $countryCode),
-                );
+        $patterns = [
+            'AT' => self::PATTERN_D4,
+            'AU' => self::PATTERN_D4,
+            'BG' => self::PATTERN_D4,
+            'BE' => self::PATTERN_D4,
+            'CA' => '[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z] ?\\d[ABCEGHJ-NPRSTV-Z]\\d',
+            'CH' => self::PATTERN_D4,
+            'CN' => self::PATTERN_D6,
+            'CY' => self::PATTERN_D4,
+            'CZ' => self::PATTERN_D3D2,
+            'DE' => self::PATTERN_D5,
+            'DK' => self::PATTERN_D4,
+            'EE' => self::PATTERN_D5,
+            'ES' => self::PATTERN_D5,
+            'FI' => self::PATTERN_D5,
+            'FR' => '\\d{2} ?\\d{3}',
+            'GB' => 'GIR ?0AA|(?:(?:AB|AL|B|BA|BB|BD|BH|BL|BN|BR|BS|BT|BX|CA|CB|CF|CH|CM|CO|CR|CT|CV|CW|DA|DD|DE|DG|'
+            . 'DH|DL|DN|DT|DY|E|EC|EH|EN|EX|FK|FY|G|GL|GY|GU|HA|HD|HG|HP|HR|HS|HU|HX|IG|IM|IP|IV|JE|KA|KT|KW'
+            . '|KY|L|LA|LD|LE|LL|LN|LS|LU|M|ME|MK|ML|N|NE|NG|NN|NP|NR|NW|OL|OX|PA|PE|PH|PL|PO|PR|RG|RH|RM|S'
+            . '|SA|SE|SG|SK|SL|SM|SN|SO|SP|SR|SS|ST|SW|SY|TA|TD|TF|TN|TQ|TR|TS|TW|UB|W|WA|WC|WD|WF|WN|WR|WS|'
+            . 'WV|YO|ZE)(?:\\d[\\dA-Z]? ?\\d[ABD-HJLN-UW-Z]{2}))|BFPO ?\\d{1,4}',
+            'GR' => self::PATTERN_D3D2,
+            'IT' => self::PATTERN_D5,
+            'KR' => self::PATTERN_D5,
+            'LI' => '948[5-9]|949[0-7]',
+            'LT' => self::PATTERN_D5,
+            // LV - original pattern: 'LV-\\d{4}'
+            'LV' => self::PATTERN_D4,
+            'LU' => self::PATTERN_D4,
+            'MX' => self::PATTERN_D5,
+            'NL' => '\\d{4} ?[A-Z]{2}',
+            'NZ' => self::PATTERN_D4,
+            'PL' => '\\d{2}-\\d{3}',
+            'PT' => '\\d{4}-\\d{3}',
+            'RO' => self::PATTERN_D6,
+            'RU' => self::PATTERN_D6,
+            'SE' => self::PATTERN_D3D2,
+            'SI' => self::PATTERN_D4,
+            'SK' => self::PATTERN_D3D2,
+            'SM' => '4789\\d',
+            'UA' => self::PATTERN_D5,
+            'US' => '(\\d{5})(?:[ \\-](\\d{4}))?',
+        ];
+        if (!\array_key_exists($countryCode, $patterns)) {
+            throw new PostalCodeValidatorException(
+                \sprintf('Country not implemented: "%s".', $countryCode),
+            );
         }
-    }
-
-    protected function validateRegex(string $postalCode, string $pattern): bool
-    {
-        return \preg_match(\sprintf('/^%s$/', $pattern), $postalCode) === 1;
+        return \preg_match(\sprintf('/^%s$/', $patterns[$countryCode]), $postalCode) === 1;
     }
 }
