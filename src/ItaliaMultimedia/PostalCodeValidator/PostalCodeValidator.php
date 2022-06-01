@@ -19,6 +19,7 @@ class PostalCodeValidator
     /**
     * @return array<string,string>
     */
+    // phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength, SlevomatCodingStandard.Files.FunctionLength.FunctionLength
     public function getPatterns(): array
     {
         return [

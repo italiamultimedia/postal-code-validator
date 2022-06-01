@@ -25,6 +25,7 @@ class PostalCodeFormatHelper
     /**
     * @return array<string,string>
     */
+    // phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength, SlevomatCodingStandard.Files.FunctionLength.FunctionLength
     public function getFormats(): array
     {
         $sentenceFourNumbers = $this->getNumbersSentence(4);
