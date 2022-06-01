@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
 * @covers \ItaliaMultimedia\PostalCodeValidator\PostalCodeValidator
 */
-final class HelperItalyTest extends TestCase
+final class ItalyTest extends TestCase
 {
     protected const COUNTRY_CODE = 'IT';
 
