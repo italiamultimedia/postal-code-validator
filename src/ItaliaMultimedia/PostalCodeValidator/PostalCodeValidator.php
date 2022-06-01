@@ -52,7 +52,8 @@ class PostalCodeValidator
             'LV' => self::PATTERN_D4,
             'LU' => self::PATTERN_D4,
             'MX' => self::PATTERN_D5,
-            'NL' => '\\d{4} ?[A-Z]{2}',
+            // NL - original pattern: '\\d{4} ?[A-Z]{2}'. in MYPV space is nott optional
+            'NL' => '\\d{4} [A-Z]{2}',
             'NZ' => self::PATTERN_D4,
             'PL' => '\\d{2}-\\d{3}',
             'PT' => '\\d{4}-\\d{3}',
