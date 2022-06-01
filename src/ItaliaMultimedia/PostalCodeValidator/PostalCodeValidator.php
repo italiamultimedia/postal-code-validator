@@ -16,9 +16,12 @@ class PostalCodeValidator
     protected const PATTERN_D5 = '\\d{5}';
     protected const PATTERN_D6 = '\\d{6}';
 
-    public function validate(string $countryCode, string $postalCode): bool
+    /**
+    * @return array<string,string>
+    */
+    public function getPatterns(): array
     {
-        $patterns = [
+        return [
             'AT' => self::PATTERN_D4,
             'AU' => self::PATTERN_D4,
             'BG' => self::PATTERN_D4,
@@ -61,6 +64,11 @@ class PostalCodeValidator
             'UA' => self::PATTERN_D5,
             'US' => '(\\d{5})(?:[ \\-](\\d{4}))?',
         ];
+    }
+
+    public function validate(string $countryCode, string $postalCode): bool
+    {
+        $patterns = $this->getPatterns();
         if (!\array_key_exists($countryCode, $patterns)) {
             throw new PostalCodeValidatorException(
                 \sprintf('Country not implemented: "%s".', $countryCode),
