@@ -22,7 +22,7 @@ final class ItalyTest extends TestCase
     public function assertInvalidCodeFailSixDigits(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
+        self::assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
     }
 
     /**
@@ -33,7 +33,7 @@ final class ItalyTest extends TestCase
     public function assertValidCodePassMilano(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertTrue($validator->validate(self::COUNTRY_CODE, '20129'));
+        self::assertTrue($validator->validate(self::COUNTRY_CODE, '20129'));
     }
 
     /**
@@ -44,6 +44,6 @@ final class ItalyTest extends TestCase
     public function assertValidCodePassRome(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertTrue($validator->validate(self::COUNTRY_CODE, '00128'));
+        self::assertTrue($validator->validate(self::COUNTRY_CODE, '00128'));
     }
 }

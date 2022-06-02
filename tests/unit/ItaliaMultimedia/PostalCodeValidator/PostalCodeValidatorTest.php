@@ -29,7 +29,7 @@ final class PostalCodeValidatorTest extends TestCase
     public function assertPatternsArray(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertIsArray($validator->getPatterns());
+        self::assertIsArray($validator->getPatterns());
     }
 
     /**
@@ -38,6 +38,6 @@ final class PostalCodeValidatorTest extends TestCase
     public function assertPatternsArrayHasKeyAT(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertArrayHasKey('AT', $validator->getPatterns());
+        self::assertArrayHasKey('AT', $validator->getPatterns());
     }
 }

@@ -40,7 +40,7 @@ final class PostalCodeFormatHelperTest extends TestCase
     public function assertFormatsArray(): void
     {
         $helper = new PostalCodeFormatHelper();
-        $this->assertIsArray($helper->getFormats());
+        self::assertIsArray($helper->getFormats());
     }
 
     /**
@@ -49,7 +49,7 @@ final class PostalCodeFormatHelperTest extends TestCase
     public function assertFormatsArrayHasKeyAT(): void
     {
         $helper = new PostalCodeFormatHelper();
-        $this->assertArrayHasKey('AT', $helper->getFormats());
+        self::assertArrayHasKey('AT', $helper->getFormats());
     }
 
     /**
@@ -58,6 +58,6 @@ final class PostalCodeFormatHelperTest extends TestCase
     public function assertFourNumbersSentence(): void
     {
         $helper = new PostalCodeFormatHelper();
-        $this->assertSame('4 numbers', $helper->getFormat('AT'));
+        self::assertSame('4 numbers', $helper->getFormat('AT'));
     }
 }

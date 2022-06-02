@@ -11,7 +11,7 @@ namespace {
          */
         function __(string $msg, ?string $domain = null): string
         {
-            if ($domain) {
+            if ($domain !== null) {
                 return \dgettext($domain, $msg);
             }
             return \gettext($msg);
@@ -24,7 +24,7 @@ namespace {
          */
         function ___(string $msgSingular, string $msgPlural, int $msgNumber, ?string $domain = null): string
         {
-            if ($domain) {
+            if ($domain !== null) {
                 return \dngettext($domain, $msgSingular, $msgPlural, $msgNumber);
             }
             return \ngettext($msgSingular, $msgPlural, $msgNumber);

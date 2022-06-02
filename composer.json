@@ -42,7 +42,7 @@
         }
     },
     "scripts" : {
-        "all": "composer lint && composer check && composer s:9 && composer phan && composer phpmd && composer psalm && composer test",
+        "all": "composer lint && composer check && composer s:strict && composer phan && composer phpmd && composer psalm && composer test",
         "check" : "vendor/bin/phpcs --standard=php-coding-standard.xml --extensions=php -sp src tests",
         "check:structure" : "vendor/bin/pds-skeleton validate .",
         "doc" : [
@@ -54,7 +54,7 @@
         "phpmd": "vendor/bin/phpmd src xml phpmd-rulesets.xml",
         "psalm": "vendor/bin/psalm --no-diff",
         "s:9": "vendor/bin/phpstan analyse src tests --level=9 --ansi -c phpstan.neon",
-        "s:strict": "clear && vendor/bin/phpstan analyse src --level=9 --ansi -c phpstan-strict.neon",
+        "s:strict": "vendor/bin/phpstan analyse src tests --level=9 --ansi -c phpstan-strict.neon",
         "test" : "vendor/bin/phpunit --colors=always",
         "test:d" : "vendor/bin/phpunit --testdox"
     }

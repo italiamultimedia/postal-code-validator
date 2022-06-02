@@ -20,7 +20,7 @@ final class NetherlandsTest extends TestCase
     public function assertInvalidCodeFails(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertFalse($validator->validate(self::COUNTRY_CODE, '3059 12'));
+        self::assertFalse($validator->validate(self::COUNTRY_CODE, '3059 12'));
     }
 
     /**
@@ -29,7 +29,7 @@ final class NetherlandsTest extends TestCase
     public function assertCorrectCodeWithoutSpaceFails(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertFalse($validator->validate(self::COUNTRY_CODE, '3059XD'));
+        self::assertFalse($validator->validate(self::COUNTRY_CODE, '3059XD'));
     }
 
     /**
@@ -38,6 +38,6 @@ final class NetherlandsTest extends TestCase
     public function assertValidCodePass(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertTrue($validator->validate(self::COUNTRY_CODE, '3059 XD'));
+        self::assertTrue($validator->validate(self::COUNTRY_CODE, '3059 XD'));
     }
 }

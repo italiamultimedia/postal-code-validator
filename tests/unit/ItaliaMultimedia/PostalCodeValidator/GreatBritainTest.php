@@ -22,7 +22,7 @@ final class GreatBritainTest extends TestCase
     public function assertInvalidCodeFailSixDigits(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
+        self::assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
     }
 
     /**
@@ -33,7 +33,7 @@ final class GreatBritainTest extends TestCase
     public function assertValidCodePassLoughborough(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertTrue($validator->validate(self::COUNTRY_CODE, 'LE11 1HL'));
+        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'LE11 1HL'));
     }
 
     /**
@@ -44,7 +44,7 @@ final class GreatBritainTest extends TestCase
     public function assertValidCodePassLondon(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertTrue($validator->validate(self::COUNTRY_CODE, 'WC2N 5DU'));
+        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'WC2N 5DU'));
     }
 
     /**
@@ -55,6 +55,6 @@ final class GreatBritainTest extends TestCase
     public function assertValidCodePassManchester(): void
     {
         $validator = new PostalCodeValidator();
-        $this->assertTrue($validator->validate(self::COUNTRY_CODE, 'M2 4WU'));
+        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'M2 4WU'));
     }
 }
