@@ -14,34 +14,19 @@ final class ItalyTest extends TestCase
 {
     protected const COUNTRY_CODE = 'IT';
 
-    /**
-    * Invalid code
-    *
-    * @test
-    */
-    public function assertInvalidCodeFailSixDigits(): void
+    public function testAssertInvalidCodeFailSixDigits(): void
     {
         $validator = new PostalCodeValidator();
         self::assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
     }
 
-    /**
-    * Valid code - Milano
-    *
-    * @test
-    */
-    public function assertValidCodePassMilano(): void
+    public function testAssertValidCodePassMilano(): void
     {
         $validator = new PostalCodeValidator();
         self::assertTrue($validator->validate(self::COUNTRY_CODE, '20129'));
     }
 
-    /**
-    * Valid code - Rome
-    *
-    * @test
-    */
-    public function assertValidCodePassRome(): void
+    public function testAssertValidCodePassRome(): void
     {
         $validator = new PostalCodeValidator();
         self::assertTrue($validator->validate(self::COUNTRY_CODE, '00128'));

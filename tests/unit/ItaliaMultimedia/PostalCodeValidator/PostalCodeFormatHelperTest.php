@@ -14,48 +14,33 @@ use PHPUnit\Framework\TestCase;
 */
 final class PostalCodeFormatHelperTest extends TestCase
 {
-    /**
-    * @test
-    */
-    public function assertInvalidFormatCallThrowsException(): void
+    public function testAssertInvalidFormatCallThrowsException(): void
     {
         $helper = new PostalCodeFormatHelper();
         $this->expectException(PostalCodeValidatorException::class);
         $helper->getFormat('ABC');
     }
 
-    /**
-    * @test
-    */
-    public function assertInvalidNumbersSentenceCallThrowsException(): void
+    public function testAssertInvalidNumbersSentenceCallThrowsException(): void
     {
         $helper = new PostalCodeFormatHelper();
         $this->expectException(PostalCodeValidatorException::class);
         $helper->getNumbersSentence(99);
     }
 
-    /**
-    * @test
-    */
-    public function assertFormatsArray(): void
+    public function testAssertFormatsArray(): void
     {
         $helper = new PostalCodeFormatHelper();
         self::assertIsArray($helper->getFormats());
     }
 
-    /**
-    * @test
-    */
-    public function assertFormatsArrayHasKeyAT(): void
+    public function testAssertFormatsArrayHasKeyAT(): void
     {
         $helper = new PostalCodeFormatHelper();
         self::assertArrayHasKey('AT', $helper->getFormats());
     }
 
-    /**
-    * @test
-    */
-    public function assertFourNumbersSentence(): void
+    public function testAssertFourNumbersSentence(): void
     {
         $helper = new PostalCodeFormatHelper();
         self::assertSame('4 numbers', $helper->getFormat('AT'));

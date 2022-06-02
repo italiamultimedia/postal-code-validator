@@ -13,29 +13,20 @@ use PHPUnit\Framework\TestCase;
 */
 final class PostalCodeValidatorTest extends TestCase
 {
-    /**
-    * @test
-    */
-    public function assertInvalidValidateCallThrowsException(): void
+    public function testAssertInvalidValidateCallThrowsException(): void
     {
         $validator = new PostalCodeValidator();
         $this->expectException(PostalCodeValidatorException::class);
         $validator->validate('ABC', 'DEFGH');
     }
 
-    /**
-    * @test
-    */
-    public function assertPatternsArray(): void
+    public function testAssertPatternsArray(): void
     {
         $validator = new PostalCodeValidator();
         self::assertIsArray($validator->getPatterns());
     }
 
-    /**
-    * @test
-    */
-    public function assertPatternsArrayHasKeyAT(): void
+    public function testAssertPatternsArrayHasKeyAT(): void
     {
         $validator = new PostalCodeValidator();
         self::assertArrayHasKey('AT', $validator->getPatterns());

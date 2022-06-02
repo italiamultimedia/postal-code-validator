@@ -14,28 +14,19 @@ final class NetherlandsTest extends TestCase
 {
     protected const COUNTRY_CODE = 'NL';
 
-    /**
-    * @test
-    */
-    public function assertInvalidCodeFails(): void
+    public function testAssertInvalidCodeFails(): void
     {
         $validator = new PostalCodeValidator();
         self::assertFalse($validator->validate(self::COUNTRY_CODE, '3059 12'));
     }
 
-    /**
-    * @test
-    */
-    public function assertCorrectCodeWithoutSpaceFails(): void
+    public function testAssertCorrectCodeWithoutSpaceFails(): void
     {
         $validator = new PostalCodeValidator();
         self::assertFalse($validator->validate(self::COUNTRY_CODE, '3059XD'));
     }
 
-    /**
-    * @test
-    */
-    public function assertValidCodePass(): void
+    public function testAssertValidCodePass(): void
     {
         $validator = new PostalCodeValidator();
         self::assertTrue($validator->validate(self::COUNTRY_CODE, '3059 XD'));

@@ -14,45 +14,25 @@ final class GreatBritainTest extends TestCase
 {
     protected const COUNTRY_CODE = 'GB';
 
-    /**
-    * Invalid code
-    *
-    * @test
-    */
-    public function assertInvalidCodeFailSixDigits(): void
+    public function testAssertInvalidCodeFailSixDigits(): void
     {
         $validator = new PostalCodeValidator();
         self::assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
     }
 
-    /**
-    * Valid code - Loughborough
-    *
-    * @test
-    */
-    public function assertValidCodePassLoughborough(): void
+    public function testAssertValidCodePassLoughborough(): void
     {
         $validator = new PostalCodeValidator();
         self::assertTrue($validator->validate(self::COUNTRY_CODE, 'LE11 1HL'));
     }
 
-    /**
-    * Valid code - London
-    *
-    * @test
-    */
-    public function assertValidCodePassLondon(): void
+    public function testAssertValidCodePassLondon(): void
     {
         $validator = new PostalCodeValidator();
         self::assertTrue($validator->validate(self::COUNTRY_CODE, 'WC2N 5DU'));
     }
 
-    /**
-    * Valid code - Manchester
-    *
-    * @test
-    */
-    public function assertValidCodePassManchester(): void
+    public function testAssertValidCodePassManchester(): void
     {
         $validator = new PostalCodeValidator();
         self::assertTrue($validator->validate(self::COUNTRY_CODE, 'M2 4WU'));
