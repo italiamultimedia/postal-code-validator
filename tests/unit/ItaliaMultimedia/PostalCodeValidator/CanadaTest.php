@@ -29,6 +29,6 @@ final class CanadaTest extends TestCase
     public function testAssertValidCodeFailNiagaraFallsSpaceMissing(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertFalse($validator->validate(self::COUNTRY_CODE, 'L2J 4L6'));
+        self::assertFalse($validator->validate(self::COUNTRY_CODE, 'L2J4L6'));
     }
 }
