@@ -27,7 +27,9 @@ class PostalCodeValidator
             'AU' => self::PATTERN_D4,
             'BG' => self::PATTERN_D4,
             'BE' => self::PATTERN_D4,
-            'CA' => '[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z] ?\\d[ABCEGHJ-NPRSTV-Z]\\d',
+            // CA - original pattern: '[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z] ?\\d[ABCEGHJ-NPRSTV-Z]\\d'
+            // Customization: make space mandatory, not optional
+            'CA' => '[ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z] \\d[ABCEGHJ-NPRSTV-Z]\\d',
             'CH' => self::PATTERN_D4,
             'CN' => self::PATTERN_D6,
             'CY' => self::PATTERN_D4,
