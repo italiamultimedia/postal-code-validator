@@ -11,7 +11,7 @@ namespace ItaliaMultimedia\PostalCodeValidator;
 */
 class PostalCodeValidator
 {
-    protected const PATTERN_D3D2 = '\\d{3} ?\\d{2}';
+    protected const PATTERN_D3D2 = '\\d{3} \\d{2}';
     protected const PATTERN_D4 = '\\d{4}';
     protected const PATTERN_D5 = '\\d{5}';
     protected const PATTERN_D6 = '\\d{6}';
