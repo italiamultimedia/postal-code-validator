@@ -48,10 +48,10 @@ class PostalCodeFormatHelper
             'CN' => $sentenceSixNumbers,
             'RO' => $sentenceSixNumbers,
             'RU' => $sentenceSixNumbers,
-            'CZ' => \sprintf(\__('3N b 2N (3 numbers, a space, 2 numbers, example: %s)'), '277 07'),
+            'CZ' => $this->getD3D2Sentence('277 07'),
             'GB' => \__('last 4 digit must be a space, a numer, 2 letters, example: LS26 8AL'),
             'DE' => $sentenceFiveNumbers,
-            'GR' => \sprintf(\__('3N b 2N (3 numbers, a space, 2 numbers, example: %s)'), '104 31'),
+            'GR' => $this->getD3D2Sentence('104 31'),
             'IT' => $sentenceFiveNumbers,
             'EE' => $sentenceFiveNumbers,
             'ES' => $sentenceFiveNumbers,
@@ -60,15 +60,23 @@ class PostalCodeFormatHelper
             'KR' => $sentenceFiveNumbers,
             'LT' => $sentenceFiveNumbers,
             'MX' => $sentenceFiveNumbers,
-            'SE' => \sprintf(\__('3N b 2N (3 numbers, a space, 2 numbers, example: %s)'), '100 05'),
+            'SE' => $this->getD3D2Sentence('100 05'),
             'SM' => $sentenceFiveNumbers,
             'UA' => $sentenceFiveNumbers,
             'US' => $sentenceFiveNumbers,
             'NL' => \__('4N b 2A (4 numbers, a space, 2 letters, example: 1014 DA)'),
             'PL' => \__('2n - 3n (2 numbers, -, 3 numbers, example: 20-002)'),
             'PT' => \__('4n - 3n (4 numbers, -, 3 numbers, example: 3000-387)'),
-            'SK' => \sprintf(\__('3N b 2N (3 numbers, a space, 2 numbers, example: %s)'), '958 01'),
+            'SK' => $this->getD3D2Sentence('958 01'),
         ];
+    }
+
+    /**
+    * @suppress PhanPluginPrintfVariableFormatString
+    */
+    public function getD3D2Sentence(string $example): string
+    {
+        return \sprintf(\__('3N b 2N (3 numbers, a space, 2 numbers, example: %s)'), $example);
     }
 
     public function getNumbersSentence(int $numbers): string
