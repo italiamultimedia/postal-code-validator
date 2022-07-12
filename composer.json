@@ -57,5 +57,10 @@
         "s:strict": "vendor/bin/phpstan analyse src tests --level=9 --ansi -c phpstan-strict.neon",
         "test" : "vendor/bin/phpunit --colors=always",
         "test:d" : "vendor/bin/phpunit --testdox"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
