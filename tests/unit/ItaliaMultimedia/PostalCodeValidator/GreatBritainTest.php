@@ -37,4 +37,16 @@ final class GreatBritainTest extends TestCase
         $validator = new PostalCodeValidator();
         self::assertTrue($validator->validate(self::COUNTRY_CODE, 'M2 4WU'));
     }
+
+    public function testAssertInvalid5CharsSpaceMissingFails(): void
+    {
+        $validator = new PostalCodeValidator();
+        self::assertFalse($validator->validate(self::COUNTRY_CODE, 'E83XT'));
+    }
+
+    public function testAssertValid5CharsPass(): void
+    {
+        $validator = new PostalCodeValidator();
+        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'E8 3XT'));
+    }
 }
