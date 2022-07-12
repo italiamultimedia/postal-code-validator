@@ -43,7 +43,12 @@ class PostalCodeValidator
             'EE' => self::PATTERN_D5,
             'ES' => self::PATTERN_D5,
             'FI' => self::PATTERN_D5,
-            'FR' => '\\d{2} ?\\d{3}',
+            /**
+             * FR customization: use 5 digits.
+             *
+             * Original pattern: '\\d{2} ?\\d{3}'
+             */
+            'FR' => self::PATTERN_D5,
             /**
              * GB customization: make space mandatory, not optional.
              *
