@@ -18,13 +18,13 @@ final class FranceTest extends TestCase
     {
         $validator = new PostalCodeValidator();
         // Grenoble 38017
-        self::assertFalse($validator->validate(self::COUNTRY_CODE, '38 017'));
+        self::assertFalse($validator->isValid(self::COUNTRY_CODE, '38 017'));
     }
 
     public function testAssertValidCodePassGrenoble(): void
     {
         $validator = new PostalCodeValidator();
         // Grenoble 38017
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, '38017'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, '38017'));
     }
 }

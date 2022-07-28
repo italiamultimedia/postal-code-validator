@@ -18,13 +18,13 @@ final class SlovakiaTest extends TestCase
     {
         $validator = new PostalCodeValidator();
         // Bratislava 811 01
-        self::assertFalse($validator->validate(self::COUNTRY_CODE, '81101'));
+        self::assertFalse($validator->isValid(self::COUNTRY_CODE, '81101'));
     }
 
     public function testAssertValidCodePassBratislava(): void
     {
         $validator = new PostalCodeValidator();
         // Bratislava 811 01
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, '811 01'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, '811 01'));
     }
 }

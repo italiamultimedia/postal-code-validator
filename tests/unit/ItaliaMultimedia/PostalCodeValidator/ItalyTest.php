@@ -17,18 +17,18 @@ final class ItalyTest extends TestCase
     public function testAssertInvalidCodeFailSixDigits(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
+        self::assertFalse($validator->isValid(self::COUNTRY_CODE, '123456'));
     }
 
     public function testAssertValidCodePassMilano(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, '20129'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, '20129'));
     }
 
     public function testAssertValidCodePassRome(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, '00128'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, '00128'));
     }
 }

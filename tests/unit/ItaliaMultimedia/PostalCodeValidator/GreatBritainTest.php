@@ -17,36 +17,36 @@ final class GreatBritainTest extends TestCase
     public function testAssertInvalidCodeFailSixDigits(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertFalse($validator->validate(self::COUNTRY_CODE, '123456'));
+        self::assertFalse($validator->isValid(self::COUNTRY_CODE, '123456'));
     }
 
     public function testAssertValidCodePassLoughborough(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'LE11 1HL'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, 'LE11 1HL'));
     }
 
     public function testAssertValidCodePassLondon(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'WC2N 5DU'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, 'WC2N 5DU'));
     }
 
     public function testAssertValidCodePassManchester(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'M2 4WU'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, 'M2 4WU'));
     }
 
     public function testAssertInvalid5CharsSpaceMissingFails(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertFalse($validator->validate(self::COUNTRY_CODE, 'E83XT'));
+        self::assertFalse($validator->isValid(self::COUNTRY_CODE, 'E83XT'));
     }
 
     public function testAssertValid5CharsPass(): void
     {
         $validator = new PostalCodeValidator();
-        self::assertTrue($validator->validate(self::COUNTRY_CODE, 'E8 3XT'));
+        self::assertTrue($validator->isValid(self::COUNTRY_CODE, 'E8 3XT'));
     }
 }

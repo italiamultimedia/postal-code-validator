@@ -98,7 +98,7 @@ class PostalCodeValidator
         ];
     }
 
-    public function validate(string $countryCode, string $postalCode): bool
+    public function isValid(string $countryCode, string $postalCode): bool
     {
         $patterns = $this->getPatterns();
         if (!\array_key_exists($countryCode, $patterns)) {

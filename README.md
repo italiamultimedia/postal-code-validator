@@ -19,7 +19,7 @@ $postalCodeFormatHelper = new \ItaliaMultimedia\PostalCodeValidator\PostalCodeFo
 try {
     // Check "to"
     if ($this->data('toPostalCode')) {
-        if (!$postalCodeValidator->validate($this->data('toCountryId'), $this->data('toPostalCode'))) {
+        if (!$postalCodeValidator->isValid($this->data('toCountryId'), $this->data('toPostalCode'))) {
             $this->errors['toPostalCode'][] = \sprintf(
                 '%s %s',
                 \sprintf(\__('This field is not valid: %s.'), $this->setting('meta/toPostalCode')),
