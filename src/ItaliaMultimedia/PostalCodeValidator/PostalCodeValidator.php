@@ -27,6 +27,7 @@ class PostalCodeValidator
             'AU' => self::PATTERN_D4,
             'BG' => self::PATTERN_D4,
             'BE' => self::PATTERN_D4,
+            'BR' => '\\d{5}-\\d{3}',
             /**
              * CA customization: make space mandatory, not optional.
              *

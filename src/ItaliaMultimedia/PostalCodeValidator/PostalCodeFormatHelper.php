@@ -36,6 +36,7 @@ class PostalCodeFormatHelper
             'AU' => $sentenceFourNumbers,
             'BE' => $sentenceFourNumbers,
             'BG' => $sentenceFourNumbers,
+            'BR' => \__('5n - 3n (5 numbers, -, 3 numbers, example: 01002-001)'),
             'CH' => $sentenceFourNumbers,
             'CY' => $sentenceFourNumbers,
             'DK' => $sentenceFourNumbers,
