@@ -38,7 +38,7 @@
         ],
         "psr-4" : {
             "ItaliaMultimedia\\" : "src/ItaliaMultimedia/",
-            "Tests\\" : "tests/unit/WebServCo/"
+            "Tests\\" : "tests/unit/ItaliaMultimedia/"
         }
     },
     "scripts" : {
