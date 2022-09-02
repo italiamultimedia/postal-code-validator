@@ -60,6 +60,7 @@ class PostalCodeFormatHelper
             'FR' => $sentenceFiveNumbers,
             'KR' => $sentenceFiveNumbers,
             'LT' => $sentenceFiveNumbers,
+            'MT' => \__('3A b 4N (3 letters, a space, 4 numbers, example: VLT 1118)'),
             'MX' => $sentenceFiveNumbers,
             'SE' => $this->getD3D2Sentence('100 05'),
             'SM' => $sentenceFiveNumbers,

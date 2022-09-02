@@ -73,15 +73,21 @@ class PostalCodeValidator
             /**
              * LV customization: remove prefix.
              *
-             * Original pattern:'LV-\\d{4}'
+             * Original pattern: 'LV-\\d{4}'
              */
             'LV' => self::PATTERN_D4,
             'LU' => self::PATTERN_D4,
+            /**
+             * MT customization: make space mandatory, not optional.
+             *
+             * Original pattern: '[A-Z]{3} ?\\d{2,4}'
+             */
+            'MT' => '[A-Z]{3} \\d{2,4}',
             'MX' => self::PATTERN_D5,
             /**
              * NL customization: make space mandatory, not optional.
-             * Original pattern:
-             * '\\d{4} ?[A-Z]{2}'
+             *
+             * Original pattern: '\\d{4} ?[A-Z]{2}'
              */
             'NL' => '\\d{4} [A-Z]{2}',
             'NZ' => self::PATTERN_D4,
