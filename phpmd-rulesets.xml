@@ -15,7 +15,7 @@
     <rule ref="rulesets/cleancode.xml/MissingImport">
         <properties>
             <!-- prevent "Missing class import via use statement" for global namespace classes -->
-            <!-- exmaple form: https://github.com/phpmd/phpmd/issues/910 -->
+            <!-- example from: https://github.com/phpmd/phpmd/issues/910 -->
             <property name="ignore-global" value="true"/>
         </properties>
     </rule>
